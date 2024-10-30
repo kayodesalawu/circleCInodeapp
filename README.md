@@ -34,33 +34,22 @@ docker-compose build
 
 ```bash
 circleCInodeapp$ git add .
-circleCInodeapp$ git status
-On branch master
-Your branch is up to date with 'origin/master'.
-
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-        new file:   Rulesets.pdf
-        new file:   images/ruleset-1.png
-        new file:   images/ruleset-2.png
-        new file:   images/ruleset-3.png
-        modified:   index.test.js
-
-circleCInodeapp$ git commit -m "testing protected branches"
-[master 08b4667] testing protected branches
- 5 files changed, 1 insertion(+), 1 deletion(-)
- create mode 100644 Rulesets.pdf
- create mode 100644 images/ruleset-1.png
- create mode 100644 images/ruleset-2.png
- create mode 100644 images/ruleset-3.png
+circleCInodeapp$ git commit -m "updating readme"
+[master ee09fbd] updating readme
+ 3 files changed, 80 insertions(+), 3 deletions(-)
+ create mode 100644 images/protected-master-branch-merge.png
+ delete mode 100644 notes.sh
+circleCInodeapp$ fetch
+bash: fetch: command not found
+circleCInodeapp$ git fetch
 circleCInodeapp$ git push origin master
-Enumerating objects: 10, done.
-Counting objects: 100% (10/10), done.
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
 Delta compression using up to 2 threads
-Compressing objects: 100% (8/8), done.
-Writing objects: 100% (8/8), 261.30 KiB | 15.37 MiB/s, done.
-Total 8 (delta 2), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 120.49 KiB | 15.06 MiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
 remote: error: GH013: Repository rule violations found for refs/heads/master.
 remote: Review all repository rules at https://github.com/kayodesalawu/circleCInodeapp/rules?ref=refs%2Fheads%2Fmaster
 remote:
@@ -74,27 +63,26 @@ error: failed to push some refs to 'https://github.com/kayodesalawu/circleCInode
 </details>
 <p>
 
-3. But we can push to a different branch
+1. But we can push to a different branch `initialbranch`
 
 ```bash
 circleCInodeapp$ git push origin master:initialbranch
-Enumerating objects: 10, done.
-Counting objects: 100% (10/10), done.
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
 Delta compression using up to 2 threads
-Compressing objects: 100% (8/8), done.
-Writing objects: 100% (8/8), 261.30 KiB | 15.37 MiB/s, done.
-Total 8 (delta 2), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
-remote:
-remote: Create a pull request for 'initialbranch' on GitHub by visiting:
-remote:      https://github.com/kayodesalawu/circleCInodeapp/pull/new/initialbranch
-remote:
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 120.49 KiB | 15.06 MiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
 To https://github.com/kayodesalawu/circleCInodeapp.git
- * [new branch]      master -> initialbranch
+   06da683..bafaecf  master -> initialbranch
 ```
 
-4. And then create a pull request and merging to master branch
+4. CircleCI checks passed
 
-- <img src="images/protected-master-branch-merge.png" alt="Protecting master branch" width="900">
+- <img src="images/circleci-checks-passed.png" alt="Circle CI checks passed" width="900">
 
-git push origin master:initialbranch
+5. Merge `initialbranch` into `master` branch
+
+- <img src="images/merged.png" alt="Protecting master branch" width="900">
+
