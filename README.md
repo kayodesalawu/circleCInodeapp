@@ -86,3 +86,14 @@ To https://github.com/kayodesalawu/circleCInodeapp.git
 
 - <img src="images/merged.png" alt="Protecting master branch" width="900">
 
+
+# When making changes
+
+```sh
+git pull origin master
+git checkout -b initialbranch
+git add .
+git status
+git commit -m "Your commit message"
+git push origin initialbranch
+```
