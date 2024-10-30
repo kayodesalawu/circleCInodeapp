@@ -5,7 +5,7 @@ jobs:
       - image: cimg/node:14.10.1
     steps:
       - checkout
-      - run: npm install
+      - run:
           command: npm install
       - run:
           command: npm test
